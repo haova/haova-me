@@ -1,0 +1,21 @@
+{
+  "name": "haova-me",
+  "version": "1.0.0",
+  "description": "",
+  "source": "src/index.html",
+  "type": "module",
+  "scripts": {
+    "start": "parcel",
+    "build": "parcel build"
+  },
+  "devDependencies": {
+    "@parcel/packager-raw-url": "^2.8.3",
+    "@parcel/transformer-webmanifest": "^2.8.3",
+    "parcel": "latest",
+    "postcss": "^8.4.21",
+    "tailwindcss": "^3.2.7"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
