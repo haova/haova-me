@@ -1,0 +1,24 @@
+name: Deploy
+
+on: [push]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 16
+      - run: npm i
+      - run: npm run build
+      - run: |
+          cd dist
+          zip -r ../deploy.zip *
+          cd ../
+          curl -H "X-API-Key: ${KEY}" "${ENDPOINT}" -F file=@deploy.zip
+        env:
+          ENDPOINT: ${{ secrets.ENDPOINT }}
+          KEY: ${{ secrets.KEY }}
