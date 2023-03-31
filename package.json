@@ -5,15 +5,14 @@
   "source": "src/index.html",
   "type": "module",
   "scripts": {
-    "start": "parcel",
-    "build": "parcel build"
+    "dev": "rugopa",
+    "build": "rugopa --build"
   },
   "devDependencies": {
-    "@parcel/packager-raw-url": "^2.8.3",
-    "@parcel/transformer-webmanifest": "^2.8.3",
-    "parcel": "latest",
+    "@rugo-vn/page": "^1.0.2",
+    "autoprefixer": "^10.4.14",
     "postcss": "^8.4.21",
-    "tailwindcss": "^3.2.7"
+    "tailwindcss": "^3.3.0"
   },
   "keywords": [],
   "author": "",

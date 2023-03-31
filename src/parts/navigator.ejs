@@ -1,0 +1,26 @@
+<% const navs = [ { name: 'Home', link: '/' }, { name: 'Blog', link: '/blog',
+active: true }, { name: 'CV', link: '/cv.html'}, { name: 'Contact', link:
+'mailto:hi@haova.me'} ]; _%>
+<div
+  class="flex before:block before:bg-white before:flex-1 after:block after:bg-gray-50 after:flex-1 mb-4"
+>
+  <div class="max-w-3xl w-full mx-auto flex items-center justify-between">
+    <div class="px-4 py-4 md:py-2">
+      <img
+        src="/images/haova-logo-square-black-small.png"
+        alt="HaoVA's logo"
+        class="w-10 h-10 md:w-12 md:h-12"
+      />
+    </div>
+
+    <div class="flex uppercase text-sm bg-gray-50 pr-4 h-full items-center">
+      <% for (const item of navs) { %>
+      <a
+        href="<%= item.link %>"
+        class="ml-4 md:ml-8 block cursor-pointer <%= item.active ? 'font-semibold' : 'text-gray-600' %>"
+        ><%= item.name %></a
+      >
+      <% } %>
+    </div>
+  </div>
+</div>
