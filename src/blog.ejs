@@ -1,3 +1,4 @@
+<% const posts = (await table('posts').find({})).data; _%>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -6,61 +7,64 @@
     <%- await include('./parts/header.ejs') %>
   </head>
 
-  <body class="font-sans">
+  <body class="font-sans select-none">
     <%- await include('./parts/navigator.ejs') %>
-    <div class="p-4 max-w-3xl mx-auto">
-      <% for (let i = 0; i < 10; i++) { %>
-      <div
-        class="py-6 before:block before:absolute before:w-40 before:h-full before:top-0 before:left-6 before:bg-gray-50 before:z-0 relative"
-      >
-        <div class="md:flex relative">
-          <div class="flex-none">
-            <img
-              src="https://cdn.wallpapersafari.com/13/63/gSBiYk.jpg"
-              class="w-52 h-52 object-cover"
-            />
-          </div>
-
-          <div class="md:ml-4 md:flex md:flex-col">
-            <h2
-              class="flex-none absolute w-52 top-0 right-0 h-60 flex items-end md:static md:w-full md:h-auto"
-            >
-              <a
-                href="#"
-                class="text-base leading-6 font-semibold bg-white block p-2 md:text-2xl md:p-0 md:leading-9"
-                >Installing server packages for Ubuntu 18.04 VPS</a
-              >
-            </h2>
-
+    <div class="min-h-screen">
+      <div class="p-4 max-w-3xl mx-auto">
+        <% for (const post of posts) { %>
+        <div
+          class="py-6 before:block before:absolute before:w-40 before:h-full before:top-0 before:left-6 before:bg-gray-50 before:z-0 relative"
+        >
+          <div class="md:flex relative">
             <a
-              href="#"
-              class="text-xs leading-5 mt-8 block text-justify flex-1 md:text-sm md:mt-2 md:leading-6"
+              class="flex-none block"
+              href="/<%= post.slug %>.html"
             >
-              When you install a new VPS, you should set up and config a lot of
-              things. This article will figure out the kinds of stuff needed in
-              the new server, specifically Ubuntu 18.04 with Nginx and NodeJS.
+              <img
+                src="<%= post.image %>"
+                class="w-52 h-52 object-cover"
+              />
             </a>
 
-            <div class="flex justify-between items-end">
-              <div
-                class="absolute top-52 mt-3 text-xs italic md:text-sm md:not-italic md:static"
+            <div class="md:ml-4 md:flex md:flex-col">
+              <h2
+                class="flex-none absolute w-52 top-0 right-0 h-60 flex items-end md:static md:w-full md:h-auto"
               >
-                2021.04.24
-              </div>
+                <a
+                  href="/<%= post.slug %>.html"
+                  class="text-base leading-6 font-semibold bg-white block p-2 md:text-2xl md:p-0 md:leading-9"
+                  ><%= post.title %></a
+                >
+              </h2>
 
               <a
-                href="#"
-                class="absolute top-0 right-0 w-16 text-xs px-2 text-center py-2 border border-black uppercase md:px-4 md:static md:w-auto hover:bg-black hover:text-white hover:font-semibold"
-                >Read more</a
+                href="/<%= post.slug %>.html"
+                class="text-xs leading-5 mt-8 block text-justify flex-1 md:text-sm md:mt-2 md:leading-6"
               >
+                <%= post.desc %>
+              </a>
+
+              <div class="flex justify-between items-end">
+                <a
+                  href="/<%= post.slug %>.html"
+                  class="absolute top-52 mt-3 text-xs italic md:text-sm md:not-italic md:static"
+                >
+                  <%= moment(post.createdAt).format('YYYY.MM.DD') %>
+                </a>
+
+                <a
+                  href="/<%= post.slug %>.html"
+                  class="absolute top-0 right-0 w-16 text-xs px-2 text-center py-2 border border-black uppercase md:px-4 md:static md:w-auto hover:bg-black hover:text-white hover:font-semibold"
+                  >Read more</a
+                >
+              </div>
             </div>
           </div>
         </div>
+        <% } %>
       </div>
-      <% } %>
-    </div>
 
-    <div class="flex justify-center">
+      <!-- <div class="flex justify-center">
       <% for (let i = 1; i <=3 ; i++) { %>
       <a
         class="w-8 h-8 text-sm mx-2 border-black border flex items-center justify-center hover:bg-black hover:text-white hover:font-semibold"
@@ -68,6 +72,7 @@
         ><%=i %></a
       >
       <% } %>
+    </div> -->
     </div>
     <%- await include('./parts/footer.ejs') %>
   </body>

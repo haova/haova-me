@@ -16,9 +16,8 @@ jobs:
       - run: npm run build
       - run: |
           cd dist
-          zip -r ../deploy.zip *
-          cd ../
-          curl -H "X-API-Key: ${KEY}" "${ENDPOINT}" -F file=@deploy.zip
+          curl -H "X-API-Key: ${KEY}" "${ENDPOINT}/api/drives/statics/deploy" -F file=@statics.zip
+          curl -H "X-API-Key: ${KEY}" "${ENDPOINT}/api/drives/views/deploy" -F file=@statics.zip
         env:
           ENDPOINT: ${{ secrets.ENDPOINT }}
           KEY: ${{ secrets.KEY }}

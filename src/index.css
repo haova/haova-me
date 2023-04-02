@@ -2,13 +2,46 @@
 @tailwind components;
 @tailwind utilities;
 
+html {
+  height: fill-available;
+  height: -webkit-fill-available;
+}
+
 body {
   -webkit-print-color-adjust: exact !important;
   print-color-adjust: exact !important;
   min-width: 320px;
   overflow-x: hidden;
+  min-height: 100vh;
+  min-height: fill-available;
+  min-height: -webkit-fill-available;
+  top: 0;
 }
 
 .font-heading {
   font-family: 'Paytone One', sans-serif;
+}
+
+.content {
+  @apply leading-6;
+}
+
+.content img {
+  @apply max-w-full mx-auto my-4;
+}
+
+.content h2 {
+  @apply text-lg font-bold leading-8;
+}
+
+.content p {
+  @apply my-4;
+}
+
+.content pre {
+  @apply bg-gray-50 p-4 my-4 block overflow-auto select-all text-sm;
+}
+
+.content code {
+  @apply text-sm select-all;
 }
