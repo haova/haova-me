@@ -17,7 +17,7 @@ jobs:
       - run: |
           cd dist
           curl -H "X-API-Key: ${KEY}" "${ENDPOINT}/api/drives/statics/deploy" -F file=@statics.zip
-          curl -H "X-API-Key: ${KEY}" "${ENDPOINT}/api/drives/views/deploy" -F file=@statics.zip
+          curl -H "X-API-Key: ${KEY}" "${ENDPOINT}/api/drives/views/deploy" -F file=@views.zip
         env:
           ENDPOINT: ${{ secrets.ENDPOINT }}
           KEY: ${{ secrets.KEY }}
