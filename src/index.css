@@ -2,19 +2,11 @@
 @tailwind components;
 @tailwind utilities;
 
-html {
-  height: fill-available;
-  height: -webkit-fill-available;
-}
-
 body {
   -webkit-print-color-adjust: exact !important;
   print-color-adjust: exact !important;
   min-width: 320px;
   overflow-x: hidden;
-  min-height: 100vh;
-  min-height: fill-available;
-  min-height: -webkit-fill-available;
   top: 0;
 }
 
