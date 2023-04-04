@@ -1,9 +1,21 @@
-<% const post = (await table('posts').find({ slug: params.slug })).data[0]; if
-(post) { %> <% const posts = (await table('posts').find({})).data; _%>
+<% 
+  const post = (await table('posts').find({ filters: { slug: params.slug } })).data[0];
+  if (post) { 
+_%>
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title><%= post.title %>></title>
+    <title><%= post.title %></title>
+
+    <meta property="og:title" content="<%= post.title %>">
+    <meta property="og:type" content="article" />
+    <meta property="og:image" content="<%= post.image %>">
+    <meta property="og:url" content="https://www.haova.me/<%= post.slug %>.html">
+    <meta name="twitter:card" content="summary_large_image">
+
+    <meta property="og:description" content="<%= post.desc %>">
+    <meta property="og:site_name" content="<%= post.title %>">
+    <meta name="twitter:image:alt" content="<%= post.title %>">
 
     <%- await include('./parts/header.ejs') %>
   </head>
@@ -22,13 +34,13 @@
       >
         <%= moment(post.createdAt).format('YYYY.MM.DD') %>
       </div>
-      <div class="flex bg-gray-50 overflow-hidden items-center">
+      <!--div class="flex bg-gray-50 overflow-hidden items-center">
         <img
           src="<%= post.image %>"
           class="w-12 h-12 object-cover flex-none"
         />
         <div class="text-xs px-2 max-h-12"><%= post.desc %></div>
-      </div>
+      </div-->
       <div class="content"><%- post.content %></div>
     </div>
 
