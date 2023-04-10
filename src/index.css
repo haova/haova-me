@@ -37,3 +37,11 @@ body {
 .content code {
   @apply text-sm select-all;
 }
+
+.content img + em {
+  @apply block text-center -mt-2 mb-3 text-sm;
+}
+
+.content .ql-formula {
+  @apply text-sm;
+}
