@@ -6,6 +6,11 @@ export default {
       path: '/blog',
       view: 'blog.ejs',
     },
+    {
+      method: 'get',
+      path: '/cv.html',
+      view: 'cv.ejs',
+    },
     { method: 'get', path: '/:slug.html', view: 'post.ejs' },
   ],
   mocks: {

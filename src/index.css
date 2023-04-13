@@ -45,3 +45,9 @@ body {
 .content .ql-formula {
   @apply text-sm;
 }
+
+@media screen and (max-width: 767px) {
+  .sm-w-full {
+    width: 100% !important;
+  }
+}

@@ -18,7 +18,7 @@
   </head>
 
   <body class="font-sans select-none">
-    <%- await include('./parts/navigator.ejs') %>
+    <%- await include('./parts/navigator.ejs', { current: 'Blog' }) %>
     <div class="min-h-screen">
       <div class="p-4 max-w-3xl mx-auto">
         <% for (const post of posts) { %>

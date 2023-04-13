@@ -1,5 +1,6 @@
-const printBtn = document.getElementById('printBtn');
+const printBtns = document.querySelectorAll('.printBtn');
 
-printBtn.addEventListener('click', () => {
-  window.print();
-});
+for (const printBtn of printBtns)
+  printBtn.addEventListener('click', () => {
+    window.print();
+  });
