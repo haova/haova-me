@@ -1,0 +1,6 @@
+baseURL = 'https://www.haova.me'
+languageCode = 'vi-vn'
+title = 'Vũ Anh Hào - HaoVA'
+
+[permalinks]
+  blog = '/:filename/'

@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <title>Vũ Anh Hào - HaoVA</title>
+    <title>{{ .Title }} - HaoVA</title>
 
     <link rel="apple-touch-icon" sizes="57x57" href="./img/apple-icon-57x57.png" />
     <link rel="apple-touch-icon" sizes="60x60" href="./img/apple-icon-60x60.png" />
@@ -33,34 +33,8 @@
 
     <link rel="stylesheet" href="./css/style.css" />
   </head>
-  <body
-    class="font-sans w-full h-full flex flex-col items-center justify-center text-black bg-white lg:text-xl dark:text-white dark:bg-black"
-  >
-    <div class="flex flex-col items-center justify-center md:flex-row md:items-end">
-      <h1 class="relative text-7xl lg:text-8xl font-black haova">
-        H<span class="text-transparent logo theme-toggle">a</span>oVA
-      </h1>
-      <div
-        class="text-2xl mt-4 md:ml-4 md:mb-1.5 md:w-[320px] lg:text-4xl lg:mb-2 lg:ml-12 lg:w-[480px] text-center"
-      >
-        I am
-        <span class="hightlight bg-primary dark:text-black">a Software Engineer</span>
-      </div>
-    </div>
-
-    <div class="mt-16 font-bold md:w-full text-center">
-      <a
-        href="/blog"
-        class="before:content-['#'] before:mx-1 inline-block mx-2 relative after:block after:w-[calc(100%-1em)] after:h-[1em] after:bg-primary after:absolute after:bottom-0 after:z-[-1] after:left-[1em] dark:after:hidden dark:text-primary"
-        >Blog</a
-      >
-      <a
-        href="mailto:hi@haova.me"
-        class="before:content-['#'] before:mx-1 inline-block mx-2 relative after:block after:w-[calc(100%-1em)] after:h-[1em] after:bg-primary after:absolute after:bottom-0 after:z-[-1] after:left-[1em] dark:after:hidden dark:text-primary"
-        >Contact</a
-      >
-    </div>
-
-    <script src="./js/theme.js"></script>
+  <body>
+    <h1>{{ .Title }}</h1>
+    {{ .Content }}
   </body>
 </html>

@@ -1,0 +1,22 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.haova {
+  line-height: 1em;
+  height: 1em;
+  user-select: none;
+}
+
+.haova .logo {
+  background-image: url('../img/icon-dark-mode.svg'), url('../img/logo-black.svg');
+  background-size: 32% auto,90% auto;
+  background-repeat: no-repeat;
+  background-position: .1em .69em,.0275em .41em;
+  cursor: pointer;
+}
+
+.dark .haova .logo {
+  background-image: url('../img/icon-light-mode.svg'), url('../img/logo-white.svg');
+}
+
