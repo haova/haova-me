@@ -1,2 +1,0 @@
-document.addEventListener("DOMContentLoaded",()=>{let e=document.querySelectorAll(".haova .logo"),t=localStorage.getItem("currentTheme")||"light",o=e=>{e||(e=document.documentElement.classList.contains("dark")?"light":"dark"),"dark"===e?document.documentElement.classList.add("dark"):document.documentElement.classList.remove("dark"),localStorage.setItem("currentTheme",e)};for(let d of(o(t),e))d.addEventListener("click",()=>{o()})});
-//# sourceMappingURL=index.78e75b6e.js.map

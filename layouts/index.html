@@ -1,0 +1,27 @@
+{{ define "main" }}
+<div class="w-full h-full relative flex flex-col items-center justify-center lg:text-xl">
+  <div class="flex flex-col items-center justify-center md:flex-row md:items-end">
+    <h1 class="relative text-7xl lg:text-8xl font-black haova">
+      H<span class="text-transparent logo theme-toggle">a</span>oVA
+    </h1>
+    <div
+      class="text-2xl mt-4 md:ml-4 md:mb-1.5 md:w-[320px] lg:text-4xl lg:mb-2 lg:ml-12 lg:w-[480px] text-center"
+    >
+      I am
+      <span class="hightlight bg-primary dark:text-black">a Software Engineer</span>
+    </div>
+  </div>
+
+  <div class="mt-16 font-bold md:w-full text-center">
+    {{ range .Site.Menus.main }}
+    <a
+      href="{{ .URL }}"
+      class="before:content-['#'] before:mx-1 inline-block mx-2 lg:mx-4 relative after:block after:w-[calc(100%-1em)] after:h-[1em] after:bg-primary after:absolute after:bottom-0 after:z-[-1] after:left-[1em] dark:after:hidden dark:text-primary"
+      >{{ .Name | safeHTML }}</a
+    >
+    {{ end }}
+  </div>
+</div>
+<script src="/theme.js"></script>
+
+{{ end }}

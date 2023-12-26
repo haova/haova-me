@@ -1,6 +1,20 @@
 baseURL = 'https://www.haova.me'
 languageCode = 'vi-vn'
-title = 'Vũ Anh Hào - HaoVA'
+title = 'Vũ Anh Hào'
 
 [permalinks]
   blog = '/:filename/'
+
+[menu]
+  [[menu.main]]
+    name = 'Home'
+    url = '/'
+    weight = 1
+  [[menu.main]]
+    name = 'Blog'
+    url = '/blog/'
+    weight = 2
+  [[menu.main]]
+    name = 'Contact'
+    url = 'mailto:hi@haova.me'
+    weight = 3
