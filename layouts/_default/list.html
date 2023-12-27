@@ -1,12 +1,26 @@
-{{ define "main" }}
+{{ define "main" }} {{ partial "header.html" . }}
 
-<h1>{{ .Title }}</h1>
+<div class="max-w-3xl mx-auto p-4 min-h-[calc(100%-6.5rem)] md:min-h-[calc(100%-8rem)] md:text-lg">
+  {{ range .Pages.ByPublishDate.Reverse }}
+  <div class="border-b first:border-t py-4 flex flex-col md:flex-row-reverse justify-center">
+    {{ $image := .Resources.Get .Params.image }} {{ if $image }}
+    <a href="{{ .RelPermalink }}" class="block shrink-0 mb-4 w-52 mx-auto">
+      <img src="{{ $image.RelPermalink }}" alt="{{ $image.Title }}" class="w-auto h-52" />
+    </a>
+    {{ end }}
+    <a class="block w-full md:mr-4" href="{{ .RelPermalink }}">
+      <div class="text-sm mb-2">{{ time.Format "2006-01-02" .Date }}</div>
+      <h3
+        class="font-black text-lg leading-tight md:text-xl hover:underline dark:hover:text-primary dark:hover:no-underline decoration-primary"
+      >
+        {{ .Title }}
+      </h3>
+      {{ if .Params.desc }}
+      <p class="block mt-4">{{ .Params.desc }}</p>
+      {{ end }}
+    </a>
+  </div>
+  {{ end }}
+</div>
 
-<hr />
-
-{{ range .Pages.ByPublishDate.Reverse }}
-<p>
-  <a class="font-125" href="{{ .RelPermalink }}">{{ .Title }}</a>
-</p>
-
-{{ end }} {{ end }}
+{{ partial "footer.html" . }} {{ end }}

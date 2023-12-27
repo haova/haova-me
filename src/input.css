@@ -2,10 +2,12 @@
 @tailwind components;
 @tailwind utilities;
 
+/* LOGO */
 .haova {
   line-height: 1em;
   height: 1em;
   user-select: none;
+  cursor: pointer;
 }
 
 .haova .logo {
@@ -13,10 +15,33 @@
   background-size: 32% auto,90% auto;
   background-repeat: no-repeat;
   background-position: .1em .69em,.0275em .41em;
-  cursor: pointer;
 }
 
 .dark .haova .logo {
   background-image: url('/icon-light-mode.svg'), url('/logo-white.svg');
 }
+
+/* TYPO */
+@layer components {
+  .typo {
+    @apply md:text-lg;
+  }
+
+  .typo h1 {
+    @apply text-2xl font-black leading-tight mb-6 md:text-4xl md:mb-10;
+  }
+
+  .typo p {
+    @apply leading-normal my-4 md:my-6;
+  }
+
+  .typo pre {
+    @apply overflow-x-auto px-3 py-2 rounded text-sm md:text-base md:px-4 py-2;
+  }
+
+  .typo a {
+    @apply underline;
+  }
+}
+
 

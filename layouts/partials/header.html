@@ -1,0 +1,13 @@
+<div class="px-4 h-12 flex items-center justify-between max-w-3xl mx-auto md:h-16">
+  <div class="text-xl md:text-2xl">{{ partial "logo.html" . }}</div>
+
+  <div>
+    {{ range .Site.Menus.main }}
+    <a
+      href="{{ .URL }}"
+      class="ml-2 uppercase text-sm leading-6 {{ if eq $.RelPermalink .URL }}border-b-2 border-primary text-black font-bold dark:border-none dark:bg-primary{{ end }} md:ml-4 md:text-base"
+      >{{ .Name | safeHTML }}</a
+    >
+    {{ end}}
+  </div>
+</div>

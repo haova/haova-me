@@ -1,7 +1,11 @@
-{{ define "main" }}
+{{ define "main" }} {{ partial "header.html" $.Parent }}
+<div
+  class="max-w-3xl mx-auto px-4 min-h-[calc(100%-6.5rem)] md:min-h-[calc(100%-8rem)] typo text-black dark:text-white mb-8"
+>
+  <p class="text-center text-sm md:text-base">{{ time.Format "2006-01-02" .Date }}</p>
+  <h1 class="text-center">{{ .Title | safeHTML }}</h1>
 
-<h1>{{ .Title }}</h1>
+  {{ .Content | safeHTML }}
+</div>
 
-<hr />
-
-{{ .Content }} {{ end }}
+{{ partial "footer.html" . }} {{ end }}
