@@ -3,7 +3,7 @@ languageCode = 'vi-vn'
 title = 'Vũ Anh Hào'
 
 [permalinks]
-  blog = '/:filename/'
+  blog = '/:slug/'
 
 [menu]
   [[menu.main]]

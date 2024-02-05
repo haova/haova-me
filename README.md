@@ -29,6 +29,7 @@ hugo server
 ```bash
 curl -L -o /tmp/haova-me.zip https://github.com/haova/haova-me/archive/refs/heads/master.zip
 unzip /tmp/haova-me.zip -d /tmp
+rm -rf /srv/haova-me
 mv /tmp/haova-me-master /srv/haova-me
 ```
 

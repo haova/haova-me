@@ -7,5 +7,5 @@ rm -rf ./content
 mkdir -p ./content
 cp -r /root/.local/share/nokable/haova/blog ./content
 rm -rf ./content/blog/index.md
-printf "---\ntitle: 'Blog'\n---" >> ./content/blog/_index.md
+printf "%s\ntitle: 'Blog'\n%s" "---" "---" >> ./content/blog/_index.md
 hugo
