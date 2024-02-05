@@ -30,13 +30,12 @@ hugo server
 curl -L -o /tmp/haova-me.zip https://github.com/haova/haova-me/archive/refs/heads/master.zip
 unzip /tmp/haova-me.zip -d /tmp
 mv /tmp/haova-me-master /srv/haova-me
-mkdir -p /srv/haova-me/content
-ln -s /root/.local/share/nokable/haova/blog /srv/haova-me/content/blog
 ```
 
 ```bash
 cd /srv/haova-me
-hugo
+chmod +x ./scripts/build.sh
+./scripts/build.sh
 ```
 
 **Caddy**
@@ -75,7 +74,7 @@ crontab -e
 ```
 
 ```bash
-00 13 * * * cd /srv/haova-me && /root/.local/bin/hugo
+00 13 * * * /srv/haova-me/scripts/build.sh
 ```
 
 ## License
